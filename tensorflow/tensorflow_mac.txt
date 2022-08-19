@@ -1,0 +1,18 @@
+Tensorflow installation in Mac M1 (from source):
+
+1) open Terminal Get Info and enable "Open using Rosetta" (duplicate Terminal app for this and open Rosetta terminal)
+2) git clone https://github.com/tensorflow/tensorflow.git
+3) cd tensorflow
+4) git checkout branch_name (for us: v2.4.1)
+5) ./configure (say N to everything, leave default config)
+6) bazel build //tensorflow/tools/pip_package:build_pip_package (takes approximately ~5 hours)
+7) rename .whl file to disable OS restrictions (us: tensorflow-2.4.1-py3-none-any.whl)
+8) pip install /tmp/tensorflow_pkg/tensorflow-2.4.1-py3-none-any.whl (enable --force-reinstall if TF already installed)
+
+And you are done! Try to run a few code snippets to see if your TF setup is working.
+
+If you have python 3.8.5, you can skip steps 2-7 and run step 8 with the .whl file here (for TF 2.4.1).
+
+The following .whl files work for python 3.7 and TF 1.15.0, 2.4.1, and 2.5.0:
+
+https://drive.google.com/drive/folders/11cACNiynhi45br1aW3ub5oQ6SrDEQx4p
